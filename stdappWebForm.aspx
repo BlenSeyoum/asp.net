@@ -85,10 +85,6 @@
         <table border="1"  style="border-collapse: collapse">
         <tr>
             <td valign ="top">
-                studID:<br />
-                <asp:TextBox ID="txtstudID" runat="server" />
-            </td>
-            <td valign ="top">
                 firstname:<br />
                 <asp:TextBox ID="txtfirstname" runat="server"  />
             </td>

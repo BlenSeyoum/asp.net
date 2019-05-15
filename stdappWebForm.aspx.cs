@@ -7,15 +7,17 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Text;
 
 namespace Studentapp
-{
+{   
+    
     public partial class stdappWebForm : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["constring"].ConnectionString);
         SqlDataAdapter sqlda = new SqlDataAdapter();
         DataSet ds = new DataSet();
-        
+        Random random = new Random();
         protected void Page_Load(object sender, EventArgs e)
         {
             con.Open();
@@ -32,10 +34,14 @@ namespace Studentapp
             this.GridView1.DataBind();
             
         }
-
+       
         protected void Save_Click(object sender, EventArgs e)
         {
-            string studID = txtstudID.Text;
+            
+            string studID;
+            int studIDran;
+            studIDran = random.Next(900, 1000);
+            studID = "AWS/0" + studIDran.ToString() + "/95";
             string firstname = txtfirstname.Text;
             string fathername = txtfathername.Text;
             string grandfathername = txtgrandfathername.Text;
@@ -61,7 +67,8 @@ namespace Studentapp
         }
         protected void Update_Click(object sender, EventArgs e)
         {
-            string studID = txtstudID.Text;
+           
+           
             string firstname = txtfirstname.Text;
             string fathername = txtfathername.Text;
             string grandfathername = txtgrandfathername.Text;
@@ -70,7 +77,6 @@ namespace Studentapp
             string gender = txtgender.Text;
             SqlCommand sqlcmd = new SqlCommand("stdpUpdates", con);
             sqlcmd.CommandType = CommandType.StoredProcedure;
-            sqlcmd.Parameters.AddWithValue("@studID", studID);
             sqlcmd.Parameters.AddWithValue("@firstname", firstname);
             sqlcmd.Parameters.AddWithValue("@fathername", fathername);
             sqlcmd.Parameters.AddWithValue("@grandfathername", grandfathername);
