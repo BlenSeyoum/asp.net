@@ -7,10 +7,14 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" 
-        AutoGenerateColumns="false" DataKeyNames="studId">
+ <form id="form1" runat="server">
+   <div>
+       <h1>Students Detail</h1>
+           <asp:Button ID="search" runat="server" Text="Search" OnClick="Search_Click" />
+                    <asp:TextBox ID="Searchbox" runat="server" ></asp:TextBox>
+             <br> </br>
+            <asp:GridView ID="GridViewstudentlist" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" 
+             AutoGenerateColumns="false" DataKeyNames="studId" OnSelectedIndexChanged="GridViewstudentlist_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#7C6F57" />
             <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -23,67 +27,22 @@
             <SortedDescendingCellStyle BackColor="#D4DFE1" />
             <SortedDescendingHeaderStyle BackColor="#15524A" />
             <Columns>
-                <asp:TemplateField HeaderText="studID" >
-                <ItemTemplate>
-                    <asp:Label ID="lblstudID" runat="server" Text='<%# Eval("studID") %>'></asp:Label>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:TextBox ID="txtstudID" runat="server" Text='<%# Eval("studID") %>'></asp:TextBox>
-                </EditItemTemplate>
-                </asp:TemplateField>   
-                <asp:TemplateField HeaderText="firstname" >
-                    <ItemTemplate>
-                        <asp:Label ID="lblfirstname" runat="server" Text='<%# Eval("firstname") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtfirstname" runat="server" Text='<%# Eval("firstname") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="fathername" >
-                    <ItemTemplate>
-                        <asp:Label ID="lblfathername" runat="server" Text='<%# Eval("fathername") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtfathername" runat="server" Text='<%# Eval("fathername") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="grandfathername" >
-                <ItemTemplate>
-                    <asp:Label ID="lblgrandfathername" runat="server" Text='<%# Eval("grandfathername") %>'></asp:Label>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:TextBox ID="txtgrandfathername" runat="server" Text='<%# Eval("grandfathername") %>'></asp:TextBox>
-                </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="dateofBirth" >
-                <ItemTemplate>
-                    <asp:Label ID="lbldateofBirth" runat="server" Text='<%# Eval("dateofBirth") %>'></asp:Label>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    
-                    <asp:TextBox ID="txtdateofBirth" runat="server" Text='<%# Eval("dateofBirth") %>'></asp:TextBox>
-                </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="createdDate" >
-                <ItemTemplate>
-                    <asp:Label ID="lblcreatedDate" runat="server" Text='<%# Eval("createdDate") %>'></asp:Label>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:TextBox ID="txtcreatedDate" runat="server" Text='<%# Eval("createdDate") %>'></asp:TextBox>
-                </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="gender" >
-                <ItemTemplate>
-                    <asp:Label ID="lblgender" runat="server" Text='<%# Eval("gender") %>'></asp:Label>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:TextBox ID="txtgender" runat="server" Text='<%# Eval("gender") %>'></asp:TextBox>
-                </EditItemTemplate>
-                </asp:TemplateField>
-        </Columns>
+                <asp:CommandField ShowSelectButton="true"  SelectText="Select" HeaderText="Select" />
+                <asp:BoundField DataField="studID"  HeaderText="studID" />
+                <asp:BoundField DataField="firstname"  HeaderText="firstname" />
+                <asp:BoundField DataField="fathername"  HeaderText="fathername"  />
+                <asp:BoundField DataField="grandfathername"  HeaderText="grandfathername" />
+                <asp:BoundField DataField="dateofBirth"  HeaderText="dateofBirth" />
+                <asp:BoundField DataField="createdDate"  HeaderText="createdDate" />
+                <asp:BoundField DataField="gender"  HeaderText="gender" />          
+            </Columns>
         </asp:GridView>
         <table border="1"  style="border-collapse: collapse">
         <tr>
+            <td valign ="top">
+                studID:<br />
+                <asp:TextBox ID="txtstudID" runat="server" ReadOnly ="True" />
+            </td>
             <td valign ="top">
                 firstname:<br />
                 <asp:TextBox ID="txtfirstname" runat="server"  />
@@ -99,13 +58,13 @@
             <td valign ="top" height =" ">
                 dateofBirth:<br />
                 <asp:TextBox ID="txtdateofBirth" runat="server"  />
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="26px" ImageUrl="~/images/calendar-icon.png" OnClick="ImageButton1_Click" Width="29px" />
+                <asp:ImageButton ID="ImageButtondateofBirth" runat="server" Height="26px" ImageUrl="~/images/calendar-icon.png" OnClick="ImageButtondateofBirth_Click" Width="29px" />
                 <asp:Calendar ID="dateofBirthCalendar" runat="server" OnSelectionChanged="dateofBirthCalendar_SelectionChanged"></asp:Calendar> 
             </td>
             <td valign ="top" >
                 createdDate:<br />
                 <asp:TextBox ID="txtcreatedDate" runat="server"  />
-                <asp:ImageButton ID="ImageButton2" runat="server" Height="25px" ImageUrl="~/images/calendar-icon.png" OnClick="ImageButton2_Click" Width="31px" />
+                <asp:ImageButton ID="ImageButtoncreatedDate" runat="server" Height="25px" ImageUrl="~/images/calendar-icon.png" OnClick="ImageButtoncreatedDate_Click" Width="31px" />
                 <asp:Calendar ID="createdDateCalendar" runat="server" OnSelectionChanged="createdDateCalendar_SelectionChanged"></asp:Calendar>
              </td>
 

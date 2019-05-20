@@ -22,13 +22,40 @@ namespace Studentapp {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// GridView1 control.
+        /// search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Button search;
+        
+        /// <summary>
+        /// Searchbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Searchbox;
+        
+        /// <summary>
+        /// GridViewstudentlist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewstudentlist;
+        
+        /// <summary>
+        /// txtstudID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtstudID;
         
         /// <summary>
         /// txtfirstname control.
@@ -67,13 +94,13 @@ namespace Studentapp {
         protected global::System.Web.UI.WebControls.TextBox txtdateofBirth;
         
         /// <summary>
-        /// ImageButton1 control.
+        /// ImageButtondateofBirth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtondateofBirth;
         
         /// <summary>
         /// dateofBirthCalendar control.
@@ -94,13 +121,13 @@ namespace Studentapp {
         protected global::System.Web.UI.WebControls.TextBox txtcreatedDate;
         
         /// <summary>
-        /// ImageButton2 control.
+        /// ImageButtoncreatedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtoncreatedDate;
         
         /// <summary>
         /// createdDateCalendar control.
